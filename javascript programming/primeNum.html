@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="number" id="num" name="num" />
+    <button onclick="prime()" >Click</button>
+    <script>
+  //num % i 
+  //if num 13 n i is 2
+  //13 % 2 !== 0
+  //so 13 is a primenumber
+function prime(){
+
+    var num = document.getElementById("num").value;
+
+for (var counter = 2; counter <= num; counter++) {
+
+//initialize a variable not prime to false
+var notPrime = false;
+for (var i = 2; i <= counter; i++) {
+    if (counter%i===0 && i!==counter) {
+        notPrime = true;
+    }
+}
+if (notPrime === false) {
+         document.write(counter);
+         document.write('<br>')
+}
+}
+}
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        In the case of an Armstrong number of 3 digits, the sum of cubes of each digit is equal to the number itself. For example, 
+        153 is an Armstrong number because:
+        153 = 1*1*1 + 5*5*5 + 3*3*3
+        */
+
+        // program to find Armstrong number between intervals
+
+// take an input
+const lowNumber = parseInt(prompt('Enter a positive low integer value: '));
+const highNumber = parseInt(prompt('Enter a positive high integer value: '));
+
+console.log ('Armstrong Numbers:');
+
+// looping through lowNumber to highNumber
+for (let i = lowNumber; i <= highNumber; i++) {
+
+    // converting number to string 
+    let numberOfDigits = i.toString().length;
+
+    let sum = 0;
+
+    // create a temporary variable
+    let temp = i;
+
+    /* loop through a number to find if 
+    a number is an Armstrong number */
+    while (temp > 0) {
+
+        let remainder = temp % 10;
+        sum += remainder ** numberOfDigits;
+        // removing last digit from the number
+        temp = parseInt(temp / 10); // convert float into integer
+    }
+ 
+    if (sum == i) {
+        console.log(i);
+    }
+}
+
+
+//largest armstrong num
+// program to find the largest among three numbers
+
+// take input from the user
+const num1 = parseFloat(prompt("Enter first number: "));
+const num2 = parseFloat(prompt("Enter second number: "));
+const num3 = parseFloat(prompt("Enter third number: "));
+let largest;
+
+// check the condition
+if(num1 >= num2 && num1 >= num3) {
+    largest = num1;
+}
+else if (num2 >= num1 && num2 >= num3) {
+    largest = num2;
+}
+else {
+    largest = num3;
+}
+
+// display the result
+console.log("The largest number is " + largest)
+    </script>
+</body>
+</html>

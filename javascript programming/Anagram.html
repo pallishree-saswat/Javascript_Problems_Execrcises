@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        Anagrams are words that have the same characters in the same quantity.
+         This means that two strings are anagrams if we can rearrange one to get the other.
+        */
+ /*    
+ “listen” and “silent”
+“rail safety” and “fairy tales”
+“dormitory” and “dirty room”
+“the eyes” and “they see”
+To solve this problem, we will assume the following:
+
+That we ignore extra characters like “!”, “@”, etc. and whitespaces.
+We only want to work with lowercase characters.
+        */
+
+        function anagrams(a, b) {
+  let i = 0
+  let sumA = 0
+  let sumB = 0
+  a = a.replace(/[\W]/g, "").toLowerCase()
+  b = b.replace(/[\W]/g, "").toLowerCase()
+  if (a.length !== b.length) return false
+  !(function sumCharCode() {
+    if (i < a.length) {
+      sumA += a.charCodeAt(i)
+      sumB += b.charCodeAt(i)
+      i++
+      sumCharCode()
+    }
+  })()
+  return sumA === sumB;
+}
+
+console.log(anagrams("listen", "silent"))
+
+    </script>
+</body>
+</html>
